@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.Arrays;
 public class MyProgram
 {
     public static void main(String[] args)
@@ -16,6 +18,29 @@ public class MyProgram
 		System.out.println("\n4.Is Prime Number");
 		System.out.println(isPrime(19)); // true
 		System.out.println(isPrime(49)); // false
+		
+		System.out.println("\n5. Fibbonacci");
+		fibbonacciPrint(10);
+		
+		System.out.println("\n\n6. Odd Numbers Only");
+		List<Integer> firstList = Arrays.asList(1,3,5,7,9,11);
+		System.out.println(onlyOddNumbers(firstList));
+		
+		System.out.println("\n7. Palindrome");
+		System.out.println(isPalindrome("beda"));
+		System.out.println(isPalindrome("apa"));
+		
+		System.out.println("\n8. Remove Whitespace");
+		System.out.println(removeWhitespace("   Ha Hi Hu He Ho"));
+		System.out.println("8. Using trim");
+		String s = "  abc  def\t";
+        s = s.trim();
+        System.out.println(s);
+        
+        System.out.println("\n9. Sorting Array");
+		int[] arrNumb = {5,2,8,3,6,8,1,9};
+		Arrays.sort(arrNumb);
+		System.out.println(Arrays.toString(arrNumb));
     }
     
     public static String reverse(String in)
@@ -60,5 +85,54 @@ public class MyProgram
         }
         
         return true;
+    }
+    
+    public static void fibbonacciPrint(int maxLength)
+    {
+        int a = 0;
+        int b = 1;
+        int c = 1;
+        
+        for(int i = 1; i <= maxLength; i++){
+            System.out.print(a + ", ");
+            
+            a = b;
+            b = c;
+            c = a+b;
+        }
+    }
+    
+    public static boolean onlyOddNumbers(List<Integer> list)
+    {
+        for(int i : list) {
+            if(i%2 == 0) return false;
+        }
+        
+        return true;
+    }
+    
+    private static boolean isPalindrome(String str)
+    {
+        // String reversedText = reverse(str);
+        // if(reversedText.equals(str)) return true;
+        // return false
+        
+        int strLength = str.length();
+        for(int i = 0; i<= strLength - 1; i++){
+            if(str.charAt(i) != str.charAt(strLength - i - 1)) return false;
+        }
+        return true;
+    }
+    
+    private static String removeWhitespace(String str)
+    {
+        StringBuilder output = new StringBuilder();
+        char[] chars = str.toCharArray();
+        
+        for(char c : chars){
+            if(!Character.isWhitespace(c)) output.append(c);
+        }
+        
+        return output.toString();
     }
 }
