@@ -41,6 +41,9 @@ public class MyProgram
 		int[] arrNumb = {5,2,8,3,6,8,1,9};
 		Arrays.sort(arrNumb);
 		System.out.println(Arrays.toString(arrNumb));
+		
+		System.out.println("\n10. Factorial");
+		System.out.println(factorial(10));
     }
     
     public static String reverse(String in)
@@ -134,5 +137,17 @@ public class MyProgram
         }
         
         return output.toString();
+    }
+    
+    private static long factorial(long n)
+    {
+        if(n == 1) return 1;
+        else return (n * factorial(n-1));
+        
+        // long result = 1;
+        // for(int i = 1; i <= n; i++){
+        //     result*=i;
+        // }
+        // return result;
     }
 }
