@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Arrays;
+import java.util.LinkedList;
 public class MyProgram
 {
     public static void main(String[] args)
@@ -44,6 +45,16 @@ public class MyProgram
 		
 		System.out.println("\n10. Factorial");
 		System.out.println(factorial(10));
+		
+		System.out.println("\n11. LinkedList");
+		LinkedList<Integer> ll = new LinkedList<>();
+		ll.add(1);
+		ll.add(2);
+		ll.add(3);
+		System.out.println(ll);
+		LinkedList<Integer> llReversed = new LinkedList<>();
+		ll.descendingIterator().forEachRemaining(llReversed::add);
+		System.out.println(llReversed);
     }
     
     public static String reverse(String in)
@@ -141,13 +152,12 @@ public class MyProgram
     
     private static long factorial(long n)
     {
-        if(n == 1) return 1;
-        else return (n * factorial(n-1));
-        
-        // long result = 1;
-        // for(int i = 1; i <= n; i++){
-        //     result*=i;
-        // }
-        // return result;
+        // if(n == 1) return 1;
+        // else return (n * factorial(n-1));
+        long result = 1;
+        for(int i = 1; i <= n; i++){
+            result*=i;
+        }
+        return result;
     }
 }
